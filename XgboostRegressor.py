@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Reading the data
-df=pd.read_csv('D:\Docs\DS\AQI\Data\Real-Data/Real_Combine.csv')
+df=pd.read_csv('Real_Combine.csv')
 # Checking for null values
 sns.heatmap(df.isnull(),yticklabels=False,cbar=False,cmap='viridis')
 # Since there are very few null values, we can drop them
@@ -23,7 +23,6 @@ from sklearn.ensemble import ExtraTreesRegressor
 import matplotlib.pyplot as plt
 model = ExtraTreesRegressor()
 model.fit(X,y)
-
 # Plotting the importance using ExtraTreesRegressor
 feat_importances = pd.Series(model.feature_importances_, index=X.columns)
 feat_importances.nlargest(5).plot(kind='barh')
